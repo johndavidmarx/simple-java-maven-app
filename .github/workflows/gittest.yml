@@ -4,8 +4,8 @@ on:
   push:
     branches: master
     paths: 
-      '*'
-      '!test-reports/*'
+      - '*'
+      - '!test-reports/*'
 
 jobs:
   build:
