@@ -1,10 +1,6 @@
 name: Java CI
 
-on:
-  push:
-    paths:
-    - '*'
-    - '!*.txt'
+on: [push]
 
 jobs:
   build:
@@ -20,7 +16,7 @@ jobs:
     - run: git checkout master
     - run: git status
     - run: git branch
-    - run: echo "Hello" > test-reports/hello.txt
+    - run: echo "Hello2" > test-reports/hello.txt
     - run: git add test-reports/hello.txt
     - run: git commit -m "Hello"
 
