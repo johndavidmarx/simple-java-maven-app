@@ -1,10 +1,6 @@
 name: Java CI
 
-on: 
-  push:
-    paths: 
-    - '*'
-    - '!test-reports/*'
+on: [push]
 
 jobs:
   build:
