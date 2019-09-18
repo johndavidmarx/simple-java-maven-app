@@ -12,7 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - run: sudo snap install hub --classic
+    - run: sudo add-apt-repository ppa:cpick/hub
+    - run: sudo apt-get update
+    - run: sudo apt-get install hub
     - run: hub version
     - run: git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
     - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
