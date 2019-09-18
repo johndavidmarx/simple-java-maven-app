@@ -11,10 +11,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - run: git --no-pager log --format=format:'%ae' -n 1
       
-    - run: git config --global user.email "${{github.actor}}@github.com"
-    - run: git config --global user.name "${{github.actor}}"
+    - run: git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+    - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
     - run: git fetch origin
     - run: git checkout workflow-branch
     - run: git status
