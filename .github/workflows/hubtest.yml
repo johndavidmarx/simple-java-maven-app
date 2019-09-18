@@ -14,7 +14,8 @@ jobs:
     - run: sudo apt-get install hub
     - run: hub version
       
-    - run: sed -i 's/ACCESS_TOKEN/${{secrets.ghtoken}}/g' ./.config/hub
+    - run: sed -i 's/ACCESS_TOKEN/${{secrets.newtoken}}/g' ./.config/hub
+    - run: cat ./config/hub
       
     - run: git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
     - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
