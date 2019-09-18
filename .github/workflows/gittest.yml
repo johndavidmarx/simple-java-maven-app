@@ -22,4 +22,4 @@ jobs:
     - run: git add test-reports/hello.txt
     - run: git commit -m "Hello"
 
-    - run: git push "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.actor}}/simple-java-maven-app" workflow-branch
+    - run: git push "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
