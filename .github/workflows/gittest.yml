@@ -3,7 +3,7 @@ name: Java CI
 on: 
   push:
     branches: master
-    paths: !test-reports/*
+    paths: "!test-reports/*"
 
 jobs:
   build:
