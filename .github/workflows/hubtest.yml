@@ -28,5 +28,5 @@ jobs:
 #   - run: git pull origin workflow-branch
     - run: git push "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
 #   - run: git request-pull v4.0 "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
-    - run: hub pull-request --no-edit
+    - run: hub pull-request -m "Pull Request Title\n\nAdditional Text"
    
