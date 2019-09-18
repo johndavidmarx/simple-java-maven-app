@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - run: git --no-pager log --format=format:'%ae' -n 1
+      
     - run: git config --global user.email "${{github.actor}}@github.com"
     - run: git config --global user.name "${{github.actor}}"
     - run: git fetch origin
