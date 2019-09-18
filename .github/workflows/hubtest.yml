@@ -26,7 +26,8 @@ jobs:
     - run: date > test-reports/workflow-run-date.txt
     - run: git add test-reports/workflow-run-date.txt
     - run: git commit -m "Run Date Added"
+    - run: git pull
     - run: git push "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
-    - run: git request-pull v4.0 "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
-
+#    - run: git request-pull v4.0 "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
+    - run: hub pull-request --no-edit
    
