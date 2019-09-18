@@ -15,6 +15,7 @@ jobs:
     - run: sudo apt-get update
     - run: sudo apt-get install hub
     - run: hub version
+    - run: echo "github.com:\n- user: ${{github.actor}}\n  oauth_token: ${{github.ghtoken}}" > ./.config/hub
     - run: git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
     - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
     
