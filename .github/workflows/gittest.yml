@@ -13,11 +13,12 @@ jobs:
     - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
     
     - run: git fetch origin
-    - run: git checkout master
+    - run: git checkout workflow-branch
     - run: git status
     - run: git branch
     - run: echo "Hello2" > test-reports/hello.txt
     - run: git add test-reports/hello.txt
     - run: git commit -m "Hello"
+    - run: git request-pull master "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
 
-    - run: git push "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" master
+    # - run: git push "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" master
