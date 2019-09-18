@@ -17,7 +17,8 @@ jobs:
     - name: Prepare pem file
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output ./.config/hub secrets/hub.gpg
       env:
-        GPGPW: ${{secrets.awspassword}}      
+        GPGPW: ${{secrets.awspassword}}  
+    - run: cat ./.config/hub    
     - run: unset $GITHUB_TOKEN
     - run: git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
     - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
