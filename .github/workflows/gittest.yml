@@ -21,4 +21,3 @@ jobs:
     - run: git add test-reports/hello.txt
     - run: git commit -m "Hello"
     - run: git push --set-upstream origin workflow-branch
-    
