@@ -13,7 +13,7 @@ jobs:
     - run: git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
     
     - run: git fetch origin
-    - run: git checkout workflow-branch
+    - run: git checkout -b workflow-branch
     - run: git status
     - run: git branch
     - run: echo "Hello2" > test-reports/hello.txt
