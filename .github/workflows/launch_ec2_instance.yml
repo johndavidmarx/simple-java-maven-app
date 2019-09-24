@@ -23,4 +23,9 @@ jobs:
       run: chmod 0400 marx4universe.pem
       
     - name: aws
-      run: aws version
+      run: aws --version
+    - name: aws 
+      run: aws s3 ls
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.awskeyid }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.awssecret }}
