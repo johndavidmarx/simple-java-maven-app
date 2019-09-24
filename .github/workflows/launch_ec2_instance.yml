@@ -25,7 +25,7 @@ jobs:
     - name: aws
       run: aws --version
     - name: aws 
-      run: aws s3 ls
+      run: aws s3 ls --region=us-east-2
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.awskeyid }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.awssecret }}
