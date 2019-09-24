@@ -1,6 +1,7 @@
 name: Open Pull Request
 
 on: [push]
+  
 jobs:
   build:
     runs-on: ubuntu-latest
