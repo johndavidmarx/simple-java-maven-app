@@ -14,7 +14,18 @@ jobs:
 #      uses: actions/setup-java@v1
 #      with:
 #        java-version: 1.8
-
+    - name: Prepare AWS Access File
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output ./.aws/config aws/awsconfig.gpg
+      env:
+        GPGPW: ${{secrets.awspassword}}        
+    - name: Change config File Permissions
+      run: chmod 0600 ./.aws/config
+    - name: Prepare AWS Credentials file
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output ./.aws/credentials aws/awscredentials.gpg
+      env:
+        GPGPW: ${{secrets.awspassword}}        
+    - name: Change AWS Credentials File Permissions
+      run: chmod 0600 ./.aws/credentials
     - name: Prepare pem file
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
       env:
@@ -25,7 +36,4 @@ jobs:
     - name: aws
       run: aws --version
     - name: aws 
-      run: aws s3 ls --region=us-east-2
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.awskeyid }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.awssecret }}
+      run: aws ec2 describe-instances
