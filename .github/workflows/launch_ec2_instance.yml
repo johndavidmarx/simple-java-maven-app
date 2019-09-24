@@ -20,7 +20,7 @@ jobs:
       env:
         GPGPW: ${{secrets.awspassword}}        
     - name: Change pem File Permissions
-      run: chmod 0400 awskeypair.pem
+      run: chmod 0400 marx4universe.pem
       
     - name: aws
       run: aws version
