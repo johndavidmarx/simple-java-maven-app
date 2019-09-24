@@ -23,7 +23,7 @@ jobs:
 
     - uses: mattdavis0351/actions/open-pull-request@master
       with:
-        headBranch: ${{github.ref}}
+        headBranch: workflow-branch
         baseBranch: master
         apiToken: ${{ secrets.ghtoken }}
         pullTitle: "I really need to merge these changes"
