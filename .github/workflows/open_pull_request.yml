@@ -24,4 +24,4 @@ jobs:
     - uses: mattdavis0351/actions/open-pull-request@master
       with:
         headBranch: "workflow-branch"
-        apiToken: ${{ secrets.MY_API_TOKEN }} 
+        apiToken: ${{ secrets.ghtoken }} 
