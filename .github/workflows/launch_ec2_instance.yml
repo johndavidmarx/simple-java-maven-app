@@ -28,6 +28,10 @@ jobs:
         GPGPW: ${{secrets.awspassword}}        
     - name: Change AWS Credentials File Permissions
       run: chmod 0600 ./.aws/credentials
+   
+    - name: Look at config and credentials
+      run: cat ./.aws/config
+    - run: cat ./.aws/credentials
     - name: Prepare pem file
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
       env:
