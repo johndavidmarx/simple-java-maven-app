@@ -48,5 +48,5 @@ jobs:
         AWS_CONFIG_FILE: ./.aws/config
     - name: Launch EC2 Instance
       run: aws ec2 run-instances --image-id ami-05c1fa8df71875112 \
-           --instance-type t2.micro --key-name marx4universe.pem --security-group-ids launch-wizard-4 \
+           --instance-type t2.medium --key-name marx4universe.pem --security-group-ids launch-wizard-4 \
            --subnet-id subnet-9e956ae4
