@@ -22,6 +22,6 @@ jobs:
 #   - run: git request-pull v4.0 "https://${{github.actor}}:${{secrets.ghtoken}}@github.com/${{github.repository}}" workflow-branch
 
     - uses: mattdavis0351/actions/open-pull-request@master
-        with:
-          headBranch: "workflow-branch"
-          apiToken: ${{ secrets.MY_API_TOKEN }} 
+      with:
+        headBranch: "workflow-branch"
+        apiToken: ${{ secrets.MY_API_TOKEN }} 
