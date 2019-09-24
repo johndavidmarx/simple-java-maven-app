@@ -10,10 +10,6 @@ jobs:
 
     - uses: actions/checkout@v1
 
-#    - name: Set up JDK 1.8
-#      uses: actions/setup-java@v1
-#      with:
-#        java-version: 1.8
     - name: Create .aws Directory
       run: mkdir ./.aws
     - name: Prepare AWS Access File
@@ -49,3 +45,6 @@ jobs:
     - name: Launch EC2 Instance
       run: aws ec2 run-instances --image-id ami-05c1fa8df71875112 --key-name marx4universe --security-group-ids sg-07c8684f6311ac6dd \
            --subnet-id subnet-9e956ae4 --region=us-east-2 --instance-type=t2.small
+      env:
+        AWS_SHARED_CREDENTIALS_FILE: ./.aws/credentials
+        AWS_CONFIG_FILE: ./.aws/config
