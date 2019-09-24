@@ -43,3 +43,6 @@ jobs:
       run: aws --version
     - name: aws 
       run: aws ec2 describe-instances
+      env:
+        AWS_SHARED_CREDENTIALS_FILE: ./.aws/credentials
+        AWS_CONFIG_FILE: ./.aws/config
