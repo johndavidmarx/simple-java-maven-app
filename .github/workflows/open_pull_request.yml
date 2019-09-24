@@ -1,6 +1,8 @@
 name: Open Pull Request
 
-on: [push]
+on: 
+  branch:
+    
   
 jobs:
   build:
