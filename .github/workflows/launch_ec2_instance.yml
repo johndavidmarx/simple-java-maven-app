@@ -1,0 +1,26 @@
+name: Java CI/CD Pipeline Example
+
+on: [push]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v1
+
+#    - name: Set up JDK 1.8
+#      uses: actions/setup-java@v1
+#      with:
+#        java-version: 1.8
+
+    - name: Prepare pem file
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output awskeypair.pem secrets/awskeypair.pem.gpg
+      env:
+        GPGPW: ${{secrets.awspassphrase}}        
+    - name: Change pem File Permissions
+      run: chmod 0400 awskeypair.pem
+      
+    - name: aws
+      run: aws version
